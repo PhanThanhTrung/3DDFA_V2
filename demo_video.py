@@ -104,6 +104,8 @@ if __name__ == '__main__':
         video = cv2.VideoCapture(video_path)
         fps = video.get(cv2.CAP_PROP_FPS)
         output_path =video_path.replace('/valid___not_classify_review_2707/','/valid___not_classify_review_2707_depthmap/')
+        if os.path.exists(output_path):
+            continue
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         writer = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc('M','J','P','G'), fps, (frame_width,frame_height))
 
